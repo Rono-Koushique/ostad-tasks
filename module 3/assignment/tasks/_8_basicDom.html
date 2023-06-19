@@ -29,15 +29,23 @@
                 </button>
                 <p class="info" id="show-text"></p>
                 <script>
+                    function showText(element) {
+                        element.innerText = "Button Clicked!";
+                    }
+
+                    function removeText(element) {
+                        element.innerText = "";
+                    }
+
                     const showTextBtn =
                         document.getElementById("show-text-btn");
                     const showtextElement =
                         document.getElementById("show-text");
-                    showTextBtn.addEventListener("click", (event) => {
-                        showtextElement.innerText = "Button Clicked!";
+                    showTextBtn.addEventListener("click", () => {
+                        showText(showtextElement);
                     });
-                    showTextBtn.addEventListener("dblclick", (event) => {
-                        showtextElement.innerText = "";
+                    showTextBtn.addEventListener("dblclick", () => {
+                        removeText(showtextElement);
                     });
                 </script>
             </div>

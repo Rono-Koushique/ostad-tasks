@@ -182,22 +182,8 @@ ul {
 }
 
 .form > button {
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    margin-top: 1rem;
-    padding: 1.125rem;
     border-radius: 0.5rem;
-    border: none;
-    color: white;
-    background-color: hsl(0 0% 0%/ 0.5);
     grid-column: 1/-1;
-    text-transform: uppercase;
-}
-
-.form > button:hover {
-    cursor: pointer;
-    background-color: hsl(0 0% 0%/ 0.6);
 }
 
 .info {

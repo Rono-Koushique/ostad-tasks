@@ -31,15 +31,13 @@
             </div>
         </main>
         <script>
-            const gotoBtn = document.querySelector("#goto-btn");
-            gotoBtn.addEventListener("click", gotoExample);
-            function gotoExample() {
-                window.open(
-                    "https://www.example.com",
-                    "_blank",
-                    "width=800,height=600"
-                );
+            function gotoExample(url, width, height) {
+                window.open(url, "_blank", `width=${width},height=${height}`);
             }
+            const gotoBtn = document.querySelector("#goto-btn");
+            gotoBtn.addEventListener("click", () =>
+                gotoExample("https://www.example.com", 800, 600)
+            );
         </script>
     </body>
 </html>

@@ -39,19 +39,16 @@
         </main>
         <script>
             function rootSum(arr) {
-                try {
-                    const sum = arr.reduce((total, element) => {
-                        return total + Math.pow(element, 2);
-                    }, 0);
-                    const root = Math.sqrt(sum);
-                    return root;
-                } catch (error) {
-                    return;
-                }
+                const sum = arr.reduce((total, element) => {
+                    return total + Math.pow(element, 2);
+                }, 0);
+                const root = Math.sqrt(sum);
+                return root;
             }
             const rootSumInput = document.getElementById("root-sum-input");
             const rootSumOutput = document.getElementById("root-sum-output");
             rootSumInput.addEventListener("input", (event) => {
+                // converting the input to a array of numbers
                 const inputText = event.target.value;
                 const stringArray = inputText.split(",");
                 const numbersArray = stringArray.map((element) =>
