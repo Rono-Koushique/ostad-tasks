@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../styles.css" rel="stylesheet" />
+        <title>Module 3, Assignment</title>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Assignment</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                </div>
+            </div>
+        </nav>
+        <main class="page">
+            <div class="page-container">
+                <h1 class="page-title">Task 1: Date Functionality</h1>
+                <ul>
+                    <li>The date is fetched using the date object</li>
+                    <li>Used a list to get day</li>
+                </ul>
+                <p class="info">Today is <span id="day-span"></span></p>
+            </div>
+        </main>
+        <script>
+            function getDayFromDate(dateString) {
+                const days = [
+                    "Sunday",
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                ];
+                const date = new Date(dateString);
+                const dayIndex = date.getDay();
+                const day = days[dayIndex];
+                if (!day) {
+                    return "Error: Invalid Parameters";
+                }
+                return day;
+            }
+            const daySpan = document.getElementById("day-span");
+            const today = new Date().toLocaleDateString();
+            daySpan.innerText = getDayFromDate(today);
+        </script>
+    </body>
+</html>

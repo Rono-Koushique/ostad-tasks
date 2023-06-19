@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../styles.css" rel="stylesheet" />
+        <title>Module 3, Assignment</title>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Assignment</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                </div>
+            </div>
+        </nav>
+        <main class="page">
+            <div class="page-container">
+                <h1 class="page-title">Task 7: <br />Events Functionality</h1>
+                <ul>
+                    <li>Touch anywhere on the screen</li>
+                    <li>Press any key on keyboard</li>
+                    <li>Hover over the image</li>
+                </ul>
+
+                <div class="image-container">
+                    <img
+                        id="image"
+                        src="https://source.unsplash.com/p0jz4pmnl9E"
+                    />
+                </div>
+                <script>
+                    document.addEventListener("mousedown", (event) => {
+                        let mouseX = event.clientX;
+                        let mouseY = event.clientY;
+                        alert(`Mouse at (x, y)=(${mouseX}, ${mouseY})`);
+                    });
+
+                    document.addEventListener("keydown", (event) => {
+                        let pressedKey = event.key;
+                        alert(`Pressed key: ${pressedKey}`);
+                    });
+
+                    const imageList = [
+                        "p0jz4pmnl9E",
+                        "h_XcnLbDc_0",
+                        "qbOnG07yDCM",
+                    ];
+                    let currentImageIndex = 0;
+                    const imgElement = document.getElementById("image");
+                    imgElement.addEventListener("mouseover", (event) => {
+                        currentImageIndex = currentImageIndex + 1;
+                        if (currentImageIndex % imageList.length === 0)
+                            currentImageIndex = 0;
+                        imgElement.src = `https://source.unsplash.com/${imageList[currentImageIndex]}`;
+                    });
+                </script>
+            </div>
+        </main>
+    </body>
+</html>

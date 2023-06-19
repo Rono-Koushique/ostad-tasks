@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../styles.css" rel="stylesheet" />
+        <title>Module 3, Assignment</title>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Assignment</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                </div>
+            </div>
+        </nav>
+        <main class="page">
+            <div class="page-container">
+                <h1 class="page-title">Task 14: <br />Ajax get request</h1>
+                <ul>
+                    <li>Click the button to send an ajax request</li>
+                    <li>
+                        Request Destination:
+                        https://jsonplaceholder.typicode.com/users
+                    </li>
+                    <li>Output in console</li>
+                </ul>
+                <button class="primary-btn" id="task-btn">Send Request</button>
+                <p class="info" id="show-text"></p>
+                <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+                <script>
+                    const taskBtn = document.querySelector("#task-btn");
+                    taskBtn.addEventListener("click", sendRequest);
+
+                    async function sendRequest() {
+                        try {
+                            let res = await axios.get(
+                                "https://jsonplaceholder.typicode.com/users"
+                            );
+                            console.log(res.data);
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    }
+                </script>
+            </div>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../styles.css" rel="stylesheet" />
+        <title>Module 3, Assignment</title>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Assignment</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                </div>
+            </div>
+        </nav>
+        <main class="page">
+            <div class="page-container">
+                <h1 class="page-title">
+                    Task 10: <br />CSS & DOM Manupulation
+                </h1>
+                <ul>
+                    <li>Click the button to change text color</li>
+                    <li>Double Click to change the color back</li>
+                    <li>The color is changed using css class</li>
+                </ul>
+                <button class="primary-btn" id="change-text-btn">
+                    Show Text
+                </button>
+                <strong>
+                    <p class="info" id="demo-text">Hello world</p>
+                </strong>
+            </div>
+        </main>
+        <script>
+            const changeTextBtn = document.querySelector("#change-text-btn");
+            const demoText = document.querySelector("#demo-text");
+            changeTextBtn.addEventListener("click", (event) => {
+                changeTextToYellow(demoText);
+            });
+            changeTextBtn.addEventListener("dblclick", (event) => {
+                resetTextFromYellow(demoText);
+            });
+
+            function changeTextToYellow(element) {
+                if (!element.classList.contains("hightlight")) {
+                    element.classList.add("highlight");
+                }
+            }
+
+            function resetTextFromYellow(element) {
+                element.classList.remove("highlight");
+            }
+        </script>
+    </body>
+</html>

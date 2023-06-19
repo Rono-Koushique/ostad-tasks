@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../styles.css" rel="stylesheet" />
+        <title>Module 3, Assignment</title>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Assignment</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                </div>
+            </div>
+        </nav>
+        <main class="page">
+            <div class="page-container">
+                <h1 class="page-title">Task 2: Root of sum of squares</h1>
+                <ul>
+                    <li>Enter numbers (ex 1, 2, 3)</li>
+                    <li>Each number is squared</li>
+                    <li>Then they are added</li>
+                    <li>Result is the root of the summation</li>
+                </ul>
+                <form class="form">
+                    <div class="form-input-holder">
+                        <input type="text" id="root-sum-input" />
+                    </div>
+                </form>
+                <p class="info">
+                    Result:
+                    <span id="root-sum-output"></span>
+                </p>
+            </div>
+        </main>
+        <script>
+            function rootSum(arr) {
+                try {
+                    const sum = arr.reduce((total, element) => {
+                        return total + Math.pow(element, 2);
+                    }, 0);
+                    const root = Math.sqrt(sum);
+                    return root;
+                } catch (error) {
+                    return;
+                }
+            }
+            const rootSumInput = document.getElementById("root-sum-input");
+            const rootSumOutput = document.getElementById("root-sum-output");
+            rootSumInput.addEventListener("input", (event) => {
+                const inputText = event.target.value;
+                const stringArray = inputText.split(",");
+                const numbersArray = stringArray.map((element) =>
+                    parseInt(element)
+                );
+                const result = rootSum(numbersArray);
+                rootSumOutput.innerText = result ? result : "invalid";
+            });
+        </script>
+    </body>
+</html>

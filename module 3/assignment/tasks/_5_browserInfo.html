@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../styles.css" rel="stylesheet" />
+        <title>Module 3, Assignment</title>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Assignment</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                </div>
+            </div>
+        </nav>
+        <main class="page">
+            <div class="page-container">
+                <h1 class="page-title">Task 5: Get Browser Info</h1>
+                <ul>
+                    <li>Used navigator.userAgent</li>
+                    <li>Used array index to find browser name</li>
+                    <li>Used regula expressions to get name version</li>
+                </ul>
+                <p class="info" id="browser-output"></p>
+            </div>
+        </main>
+        <script>
+            function getBrowserInfo() {
+                const userAgent = navigator.userAgent;
+                let browserName;
+                let browerVersion;
+                let versionRegex;
+
+                if (userAgent.indexOf("Firefox") > -1) {
+                    browserName = "Mozilla Firefox";
+                    versionRegex = /Firefox\/([\d.]+)/;
+                } else if (userAgent.indexOf("Chrome") > -1) {
+                    browserName = "Google Chrome";
+                    versionRegex = /Chrome\/([\d.]+)/;
+                } else if (userAgent.indexOf("Safari") > -1) {
+                    browserName = "Apple Safari";
+                    versionRegex = /Version\/([\d.]+)/;
+                } else if (
+                    userAgent.indexOf("Opera") > -1 ||
+                    userAgent.indexOf("OPR") > -1
+                ) {
+                    browserName = "Opera";
+                    versionRegex = /(?:Opera|OPR)\/([\d.]+)/;
+                } else if (userAgent.indexOf("Edge") > -1) {
+                    browserName = "Microsoft Edge";
+                    versionRegex = /Edge\/([\d.]+)/;
+                } else if (userAgent.indexOf("Trident") > -1) {
+                    browserName = "Internet Explorer";
+                    versionRegex = /Trident\/([\d.]+)/;
+                } else {
+                    browserName = "Unknown";
+                    versionRegex =
+                        /(?:\b(?:Version|MSIE|rv)[: ]|[^a-z]Edge\/)([\d.]+)/;
+                }
+                let matches = userAgent.match(versionRegex);
+                browerVersion = matches ? matches[1] : "Unknown";
+                return `${browserName} v${browerVersion}`;
+            }
+            const browserOutput = document.getElementById("browser-output");
+            const browerInfo = getBrowserInfo();
+            browserOutput.innerText = browerInfo;
+        </script>
+    </body>
+</html>

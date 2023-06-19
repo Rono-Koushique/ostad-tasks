@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../styles.css" rel="stylesheet" />
+        <title>Module 3, Assignment</title>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Assignment</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                </div>
+            </div>
+        </nav>
+        <main class="page">
+            <div class="page-container">
+                <h1 class="page-title">Task 8: <br />Basic DOM Manupulation</h1>
+                <ul>
+                    <li>Click the button to show text</li>
+                    <li>Double Click to hide</li>
+                </ul>
+                <button class="primary-btn" id="show-text-btn">
+                    Show Text
+                </button>
+                <p class="info" id="show-text"></p>
+                <script>
+                    const showTextBtn =
+                        document.getElementById("show-text-btn");
+                    const showtextElement =
+                        document.getElementById("show-text");
+                    showTextBtn.addEventListener("click", (event) => {
+                        showtextElement.innerText = "Button Clicked!";
+                    });
+                    showTextBtn.addEventListener("dblclick", (event) => {
+                        showtextElement.innerText = "";
+                    });
+                </script>
+            </div>
+        </main>
+    </body>
+</html>

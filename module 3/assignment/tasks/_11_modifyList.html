@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../styles.css" rel="stylesheet" />
+        <title>Module 3, Assignment</title>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Assignment</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                </div>
+            </div>
+        </nav>
+        <main class="page">
+            <div class="page-container">
+                <h1 class="page-title">Task 11: <br />Modification of list</h1>
+                <ul>
+                    <li>Click the button to add element to the list</li>
+                    <li>You can add upto five elements to the list</li>
+                    <li>Refresh page to reset</li>
+                </ul>
+                <button class="primary-btn" id="add-button">
+                    Add Items to List
+                </button>
+                <ul id="my-list"></ul>
+            </div>
+        </main>
+        <script>
+            const myList = document.querySelector("#my-list");
+            const addButton = document.querySelector("#add-button");
+
+            addButton.addEventListener("click", () => addItemsToList(myList));
+
+            function addItemsToList(list) {
+                const listItems = list.childNodes;
+                const newItem = document.createElement("li");
+                newItem.classList.add("my-li");
+
+                const idx = listItems.length + 1;
+                newItem.innerText = idx;
+                if (listItems.length < 5) {
+                    list.appendChild(newItem);
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../styles.css" rel="stylesheet" />
+        <title>Module 3, Assignment</title>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Assignment</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                </div>
+            </div>
+        </nav>
+        <main class="page">
+            <div class="page-container">
+                <h1 class="page-title">Task 7: <br />Events Functionality</h1>
+                <ul>
+                    <li>Bellow there are multiple paragraph elements</li>
+                    <li>Each paragraph describes their class names</li>
+                    <li>
+                        Type any name in the input field to change its
+                        corresponding tag text color to red
+                    </li>
+                </ul>
+
+                <form class="form">
+                    <div class="form-input-holder">
+                        <input
+                            type="text"
+                            placeholder="Type class name ex-green"
+                            class="border"
+                            id="task-input"
+                        />
+                    </div>
+                </form>
+
+                <div>
+                    <p id="p-1" class="info small green">(class name: green)</p>
+                    <p id="p-2" class="info small blue">(class name: blue)</p>
+                    <p id="p-3" class="info small gray">(class name: gray)</p>
+                    <p id="p-4" class="info small blue">(class name: blue)</p>
+                    <p id="p-5" class="info small blue">(class name: blue)</p>
+                    <p id="p-6" class="info small green">(class name: green)</p>
+                    <p id="p-7" class="info small blue">(class name: blue)</p>
+                    <p id="p-8" class="info small gray">(class name: gray)</p>
+                    <p id="p-9" class="info small green">(class name: green)</p>
+                    <p id="p-10" class="info small gray">(class name: gray)</p>
+                </div>
+
+                <script>
+                    const taskInput = document.querySelector("#task-input");
+                    taskInput.addEventListener("input", changeTextColor);
+
+                    function changeTextColor(event) {
+                        // reseting all paragraphs
+                        const allParagraphs = document.querySelectorAll("p");
+                        allParagraphs.forEach((element) => {
+                            element.classList.remove("red");
+                        });
+
+                        // targetting selected paragraphs
+                        const className = event.target.value;
+                        if (className) {
+                            const targetParagraphs = document.querySelectorAll(
+                                `.${className}`
+                            );
+                            targetParagraphs.forEach((element) => {
+                                element.classList.add("red");
+                            });
+                        }
+                    }
+                </script>
+            </div>
+        </main>
+    </body>
+</html>

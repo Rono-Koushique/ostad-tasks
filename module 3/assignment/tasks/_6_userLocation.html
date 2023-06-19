@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../styles.css" rel="stylesheet" />
+        <title>Module 3, Assignment</title>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Assignment</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                </div>
+            </div>
+        </nav>
+        <main class="page">
+            <div class="page-container">
+                <h1 class="page-title">Task 6: User Location</h1>
+                <ul>
+                    <li>Used navigator.geolocation api</li>
+                </ul>
+                <p class="info" id="location-status"></p>
+                <p class="info" id="location-output" target="_blank"></p>
+            </div>
+        </main>
+        <script>
+            function getUserLocation() {
+                const locationStatus =
+                    document.getElementById("location-status");
+                const locationOutput =
+                    document.getElementById("location-output");
+
+                function success(position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    locationStatus.innerText = "";
+                    locationOutput.innerHTML = `Latitude: ${latitude.toFixed(
+                        4
+                    )}°<br> Longitude: ${longitude.toFixed(4)}°`;
+                }
+
+                function error() {
+                    locationStatus.innerText =
+                        "Unable to retrieve your location";
+                }
+
+                if (!navigator.geolocation) {
+                    locationStatus.innerText =
+                        "Geolocation is not supported by your browser";
+                } else {
+                    locationStatus.innerText = "Locating...";
+                    navigator.geolocation.getCurrentPosition(success, error);
+                }
+            }
+            getUserLocation();
+        </script>
+    </body>
+</html>

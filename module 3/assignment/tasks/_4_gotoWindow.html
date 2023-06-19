@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../styles.css" rel="stylesheet" />
+        <title>Module 3, Assignment</title>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Assignment</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                </div>
+            </div>
+        </nav>
+        <main class="page">
+            <div class="page-container">
+                <h1 class="page-title">Task 4: Goto Example</h1>
+                <ul>
+                    <li>Click the button to open a new window</li>
+                    <li>The link is www.example.com</li>
+                    <li>The height and width are as per the question</li>
+                </ul>
+                <button class="primary-btn" id="goto-btn">
+                    Go to example.com
+                </button>
+            </div>
+        </main>
+        <script>
+            const gotoBtn = document.querySelector("#goto-btn");
+            gotoBtn.addEventListener("click", gotoExample);
+            function gotoExample() {
+                window.open(
+                    "https://www.example.com",
+                    "_blank",
+                    "width=800,height=600"
+                );
+            }
+        </script>
+    </body>
+</html>

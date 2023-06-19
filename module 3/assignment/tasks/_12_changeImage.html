@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../styles.css" rel="stylesheet" />
+        <title>Module 3, Assignment</title>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Assignment</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                </div>
+            </div>
+        </nav>
+        <main class="page">
+            <div class="page-container">
+                <h1 class="page-title">Task 12: <br />Change Image</h1>
+                <ul>
+                    <li>Click the button to switch image</li>
+                </ul>
+                <button class="primary-btn" id="switch-image-btn">
+                    Switch Image
+                </button>
+                <div class="image-container" id="task">
+                    <img
+                        id="image"
+                        src="https://source.unsplash.com/p0jz4pmnl9E"
+                    />
+                </div>
+                <script>
+                    const switchImageBtn =
+                        document.querySelector("#switch-image-btn");
+                    const imgElement = document.querySelector("#task > img");
+                    switchImageBtn.addEventListener("click", () =>
+                        switchImage(imgElement)
+                    );
+
+                    let currentImageIndex = 0;
+
+                    function switchImage(imgElement) {
+                        const imageList = [
+                            "p0jz4pmnl9E",
+                            "h_XcnLbDc_0",
+                            "qbOnG07yDCM",
+                        ];
+                        currentImageIndex = currentImageIndex + 1;
+                        if (currentImageIndex % imageList.length === 0)
+                            currentImageIndex = 0;
+                        currentImageUrl = `https://source.unsplash.com/${imageList[currentImageIndex]}`;
+                        imgElement.src = currentImageUrl;
+                    }
+                </script>
+            </div>
+        </main>
+    </body>
+</html>

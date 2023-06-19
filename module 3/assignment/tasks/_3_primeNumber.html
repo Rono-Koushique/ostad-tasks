@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../styles.css" rel="stylesheet" />
+        <title>Module 3, Assignment</title>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Assignment</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                </div>
+            </div>
+        </nav>
+        <main class="page">
+            <div class="page-container">
+                <h1 class="page-title">Task 3: Prime Number</h1>
+                <ul>
+                    <li>Enter a number</li>
+                    <li>Check if its prime or not</li>
+                </ul>
+                <form class="form">
+                    <div class="form-input-holder">
+                        <input type="number" class="border" id="prime-input" />
+                    </div>
+                </form>
+                <p class="info">
+                    The number is
+                    <span id="prime-output"></span>
+                </p>
+            </div>
+        </main>
+        <script>
+            function isPrime(number) {
+                if (number <= 0) return false;
+                for (let i = 2; i < number; i++) {
+                    if (number % i === 0) return false;
+                }
+                return true;
+            }
+            const primeInput = document.getElementById("prime-input");
+            const primeOutput = document.getElementById("prime-output");
+            primeInput.addEventListener("input", (event) => {
+                if (event.target.value === "") {
+                    primeOutput.innerText = "blank";
+                    return;
+                }
+                const inputText = event.target.value;
+                const inputNumber = parseInt(inputText);
+                primeOutput.innerText = isPrime(inputNumber)
+                    ? "prime"
+                    : "not prime";
+            });
+        </script>
+    </body>
+</html>

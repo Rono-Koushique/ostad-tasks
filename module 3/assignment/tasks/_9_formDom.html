@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../styles.css" rel="stylesheet" />
+        <title>Module 3, Assignment</title>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Assignment</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                </div>
+            </div>
+        </nav>
+        <main class="page">
+            <div class="page-container">
+                <h1 class="page-title">Task 9: <br />Form DOM Manupulation</h1>
+                <ul>
+                    <li>Fill up the form</li>
+                    <li>Every box has some validation logic</li>
+                    <li>The form will only submit once everything is valid</li>
+                </ul>
+                <form class="form">
+                    <div class="form-input-holder">
+                        <input
+                            type="text"
+                            class="name-input"
+                            placeholder="Fullname"
+                            required
+                        />
+                        <span class="name-error form-error"></span>
+                    </div>
+                    <div class="form-input-holder">
+                        <input
+                            type="email"
+                            class="email-input"
+                            placeholder="Email"
+                            required
+                        />
+                        <span class="email-error form-error"></span>
+                    </div>
+                    <div class="form-input-holder">
+                        <input
+                            type="password"
+                            class="password-input"
+                            placeholder="Password"
+                            required
+                        />
+                        <span class="password-error form-error"></span>
+                    </div>
+                    <div class="form-input-holder">
+                        <input
+                            type="password"
+                            class="confirm-password-input"
+                            placeholder="Confirm Password"
+                            required
+                        />
+                        <span class="confirm-password-error form-error"></span>
+                    </div>
+                    <button type="submit">Create An Account</button>
+                </form>
+                <script>
+                    const nameInput = document.querySelector(".name-input");
+                    const emailInput = document.querySelector(".email-input");
+                    const passwordInput =
+                        document.querySelector(".password-input");
+                    const confirmPasswordInput = document.querySelector(
+                        ".confirm-password-input"
+                    );
+
+                    const nameError = document.querySelector(".name-error");
+                    const emailError = document.querySelector(".email-error");
+                    const passwordError =
+                        document.querySelector(".password-error");
+                    const confirmPasswordError = document.querySelector(
+                        ".confirm-password-error"
+                    );
+
+                    nameInput.addEventListener("input", validateName);
+                    emailInput.addEventListener("input", validateEmail);
+                    passwordInput.addEventListener("input", validatePassword);
+                    confirmPasswordInput.addEventListener(
+                        "input",
+                        validateConfirmPassword
+                    );
+
+                    function validateName() {
+                        let errorMsg = [];
+                        if (nameInput.value.trim() === "") {
+                            errorMsg.push("Name cant be empty");
+                        } else {
+                            errorMsg = errorMsg.filter(
+                                (element) => element !== "Name cant be empty"
+                            );
+                        }
+
+                        if (/\d/g.test(nameInput.value)) {
+                            errorMsg.push("Name cant contain digits");
+                        } else {
+                            errorMsg = errorMsg.filter(
+                                (element) =>
+                                    element !== "Name cant contain digits"
+                            );
+                        }
+                        errorMsg &&
+                            nameInput.setCustomValidity(errorMsg.join("<br>"));
+                        nameError.innerHTML = errorMsg.join("<br>");
+                    }
+
+                    function validateEmail() {
+                        if (emailInput.validity.typeMismatch) {
+                            emailError.innerHTML =
+                                "Please enter a valid email address";
+                        } else {
+                            emailError.innerHTML = "";
+                        }
+                    }
+
+                    function validatePassword() {
+                        let errorMsg = [];
+                        if (passwordInput.value.length < 8) {
+                            errorMsg.push(
+                                "* must be at least 8 characters long"
+                            );
+                        } else {
+                            errorMsg = errorMsg.filter(
+                                (element) =>
+                                    element !==
+                                    "* must be at least 8 characters long"
+                            );
+                        }
+
+                        if (!/[A-Z]+/.test(passwordInput.value)) {
+                            errorMsg.push(
+                                "* must contain at least 1 uppercase letter"
+                            );
+                        } else {
+                            errorMsg = errorMsg.filter(
+                                (element) =>
+                                    element !==
+                                    "* must contain at least 1 uppercase letter"
+                            );
+                        }
+
+                        if (!/[a-z]+/.test(passwordInput.value)) {
+                            errorMsg.push(
+                                "* must contain at least 1 lowercase letter"
+                            );
+                        } else {
+                            errorMsg = errorMsg.filter(
+                                (element) =>
+                                    element !==
+                                    "* must contain at least 1 lowercase letter"
+                            );
+                        }
+
+                        if (!/\d+/.test(passwordInput.value)) {
+                            errorMsg.push("* must contain at least 1 digit");
+                        } else {
+                            errorMsg = errorMsg.filter(
+                                (element) =>
+                                    element !==
+                                    "* must contain at least 1 digit"
+                            );
+                        }
+                        errorMsg &&
+                            passwordInput.setCustomValidity(
+                                errorMsg.join("\n")
+                            );
+                        passwordError.innerHTML = errorMsg.join("<br>");
+                    }
+
+                    function validateConfirmPassword() {
+                        let errorMsg = [];
+                        if (
+                            passwordInput.value !== confirmPasswordInput.value
+                        ) {
+                            errorMsg.push("Passwords do not match");
+                        } else {
+                            errorMsg = errorMsg.filter(
+                                (element) =>
+                                    element !== "Passwords do not match"
+                            );
+                        }
+                        errorMsg &&
+                            confirmPasswordInput.setCustomValidity(
+                                errorMsg.join("<br>")
+                            );
+                        confirmPasswordError.innerHTML = errorMsg.join("<br>");
+                    }
+
+                    document
+                        .querySelector(".form")
+                        .addEventListener("submit", (event) => {
+                            event.preventDefault();
+                            const nameValid = nameInput.checkValidity();
+                            const emailValid = emailInput.checkValidity();
+                            const passValid = passwordInput.checkValidity();
+                            const pass2Valid =
+                                confirmPasswordInput.checkValidity();
+
+                            const formValid =
+                                nameValid &&
+                                emailValid &&
+                                passValid &&
+                                pass2Valid;
+
+                            if (formValid) event.target.submit();
+                        });
+                </script>
+            </div>
+        </main>
+    </body>
+</html>
