@@ -40,7 +40,7 @@
                     });
 
                     document.addEventListener("keydown", (event) => {
-                        let pressedKey = event.key;
+                        let pressedKey = event.keyCode || event.which;
                         alert(`Pressed key: ${pressedKey}`);
                     });
 
