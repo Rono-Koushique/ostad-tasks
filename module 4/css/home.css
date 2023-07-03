@@ -1,0 +1,19 @@
+@import "nav.css";
+@import "product.css";
+
+#product-list {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem 2rem;
+
+    @media screen and (width > 570px) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (width > 1024px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media screen and (width > 1280px) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}

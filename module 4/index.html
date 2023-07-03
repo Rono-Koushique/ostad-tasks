@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/global.css" />
+        <link rel="stylesheet" href="css/home.css" />
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <title>Ostad Mart</title>
+    </head>
+    <body>
+        <!-- ------------------------------- navbar -------------------------------- -->
+        <nav class="nav"></nav>
+
+        <!-- ---------------------------- product list ----------------------------- -->
+        <section class="container column" id="all-products">
+            <h1 class="section-title">All Products</h1>
+            <div id="product-list"></div>
+        </section>
+
+        <!-- -------------------------------- cart --------------------------------- -->
+        <section class="cart hidden"></section>
+    </body>
+
+    <script src="js/nav.js" type="module"></script>
+    <script src="js/products.js" type="module"></script>
+    <script src="js/cart.js" type="module"></script>
+</html>
