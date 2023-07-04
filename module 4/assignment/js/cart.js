@@ -7,11 +7,14 @@ function createCart() {
     `);
     const content = elementFromHtml(`
         <div class="cart--container">
-            <div class="cart--option">
+            <div class="cart--header">
                 <h1 class="cart--title">Cart Products</h1>
                 <button class="cart--clear-btn">Clear</button>
             </div>
             <div class="cart--list"></div>
+            <div class="cart--footer">
+                Total Price: <span class="cart--total"></span>
+            </div>
         </div>
     `);
     cart.appendChild(overlay);
@@ -48,6 +51,8 @@ class Cart {
         this.cartTotal = this.productList.reduce((total, product) => {
             return (total += product.quantity * product.priceOff);
         }, 0);
+        const cartTotalDom = document.querySelector(".cart--total");
+        cartTotalDom.innerText = (this.cartTotal).toFixed(2);
     }
 
     extractElements(productCard) {
@@ -149,6 +154,8 @@ class Cart {
                 item.remove();
             });
         }
+
+        this.updateTotalPrice();
     }
 
     existsInList(productId) {
