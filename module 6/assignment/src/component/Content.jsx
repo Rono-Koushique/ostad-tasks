@@ -20,7 +20,7 @@ function Content() {
                         Update
                     </button>
                 </div>
-                <div>
+                <div className="output-container">
                     <label>Output</label>
                     <pre className="output">{text}</pre>
                 </div>
