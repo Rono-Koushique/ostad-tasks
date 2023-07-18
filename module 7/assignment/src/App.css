@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    table {
+        @apply w-full p-4 border-collapse;
+    }
+
+    th,
+    td {
+        @apply p-4 border;
+    }
+
+    th {
+        @apply text-left text-neutral-500 font-semibold;
+    }
+
+    td {
+        @apply text-lg;
+    }
+
+    thead > th:first-child,
+    tr > td:first-child {
+        @apply border-l-0;
+    }
+
+    thead > th:last-child,
+    tr > td:last-child {
+        @apply border-r-0;
+    }
+}
+
+@layer components {
+}
+
+@layer utilites {
+}
