@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .form-control {
+        @apply flex items-center gap-2;
+    }
+
+    .form-control > input {
+        @apply px-5 py-3 font-medium rounded border-2 border-slate-200 w-full focus:outline-none;
+    }
+
+    table {
+        @apply w-full max-w-md mx-auto border-collapse;
+    }
+
+    table caption {
+        @apply p-2 text-xl;
+    }
+
+    table th,
+    table td {
+        @apply px-5 py-3 text-left border;
+    }
+}
