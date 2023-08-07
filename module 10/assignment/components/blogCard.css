@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .react-button {
+        @apply h-8 aspect-square rounded-full hover:bg-neutral-200 flex items-center justify-center cursor-pointer;
+    }
+
+    .react-button > svg {
+        @apply h-4 aspect-square;
+    }
+}
