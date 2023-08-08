@@ -28,7 +28,7 @@ export default async function Page({ params }) {
     const comments = await getPostComments(slug);
 
     return (
-        <main className="py-24">
+        <>
             <div className="px-4 max-w-screen-md mx-auto">
                 <h1 className="text-4xl  font-bold text-neutral-900 leading-tight">
                     {post.title}
@@ -56,6 +56,6 @@ export default async function Page({ params }) {
                         })}
                 </div>
             </div>
-        </main>
+        </>
     );
 }

@@ -1,0 +1,24 @@
+Live Link - https://ostad-tasks.vercel.app/
+
+
+
+## Folder structure used in this project
+
+
+# Main folder count 3
+
+.next - This folder is created when the project was created. This folder contains different information related to cache, server, static, types etc
+
+app - This folder is used according to the latest router system. In this folder all the pages file rest with there corresponding routes according to the file hierarchy.
+
+public - This folder can be accessed from root without compilation. This folder is automatically cached in the client for optimization
+
+
+# Helping folders
+
+components - This folder contains all the components file used in the project
+context - This folder contains all the files related to contextAPI
+data - This folder contains all the static data files
+features - This folder contains files that contains different functionalities
+lib - This folder contains different library related files like Prisma.
+utils - This folder contains different important functions used in the projects
