@@ -1,0 +1,11 @@
+.navLink {
+    color: white;
+    appearance: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 0.5rem 1rem;
+}
+
+.navLink:hover {
+    text-decoration: underline;
+}

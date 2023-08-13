@@ -1,0 +1,23 @@
+.card {
+    padding: 2rem;
+    box-shadow: 0 4px 10px hsl(0deg 0% 0%/0.25);
+    border-radius: 0.5rem;
+}
+
+.title,
+.title > h1 {
+    color: black;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.title,
+.author {
+    cursor: pointer;
+    width: fit-content;
+}
+
+.title:hover,
+.author:hover {
+    text-decoration: underline;
+}
