@@ -21,6 +21,7 @@
 .author {
     cursor: pointer;
     width: fit-content;
+    color: #0369a1;
 }
 
 .author:hover {

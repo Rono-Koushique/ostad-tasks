@@ -21,3 +21,7 @@
 .author:hover {
     text-decoration: underline;
 }
+
+.author {
+    color: #0369a1;
+}
