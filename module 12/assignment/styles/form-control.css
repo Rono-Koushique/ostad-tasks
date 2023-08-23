@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .form-control {
+        @apply flex flex-col w-full;
+    }
+
+    .form-control label {
+        @apply text-sm font-semibold text-neutral-800;
+    }
+
+    .form-control input[type="text"],
+    .form-control input[type="number"],
+    .form-control input[type="url"],
+    .form-control input[type="email"],
+    .form-control textarea {
+        @apply mt-1 border rounded-md border-neutral-300 px-2.5 py-1.5;
+    }
+}
